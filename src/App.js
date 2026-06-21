@@ -51,8 +51,8 @@ const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
 export default function App() {
-  const [movies, setMovies] = useState(tempMovieData);
-  const [watched, setWatched] = useState(tempWatchedData);
+  const [movies] = useState(tempMovieData);
+  const [watched] = useState(tempWatchedData);
   return (
     <>
       <NavBar>
@@ -159,21 +159,21 @@ function Movies({ movie }) {
   );
 }
 
-function WatchedBox() {
-  const [isOpen2, setIsOpen2] = useState(true);
+// function WatchedBox() {
+//   const [isOpen2, setIsOpen2] = useState(true);
 
-  return (
-    <div className="box">
-      <button
-        className="btn-toggle"
-        onClick={() => setIsOpen2((open) => !open)}
-      >
-        {isOpen2 ? "–" : "+"}
-      </button>
-      {isOpen2 && <></>}
-    </div>
-  );
-}
+//   return (
+//     <div className="box">
+//       <button
+//         className="btn-toggle"
+//         onClick={() => setIsOpen2((open) => !open)}
+//       >
+//         {isOpen2 ? "–" : "+"}
+//       </button>
+//       {isOpen2 && <></>}
+//     </div>
+//   );
+// }
 
 function WatchedSummary({ watched }) {
   const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
